@@ -5,7 +5,7 @@ body {
   align-items: center;
   padding: 0;
 
-  gap: 5px;
+  gap: 15px;
 }
 
 .container {
@@ -25,4 +25,17 @@ body {
   flex: 1 1 auto;
 
   border: 1px solid grey;
+}
+
+h1 {
+    margin: 0;
+}
+
+.resizeButton {
+    padding: 20px 40px;
+    border-radius: 10px;
+    margin-top: 20px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
 }

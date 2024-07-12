@@ -2,23 +2,48 @@
 
 const container = document.querySelector(".container");
 
-for (let i = 0; i < 16; i++) {
-  const gridColumn = document.createElement("div");
-  gridColumn.className = "gridColumn";
-  container.appendChild(gridColumn);
-  for (let j = 0; j < 16; j++) {
-    const gridSquare = document.createElement("div");
-    gridSquare.className = "gridSquare";
-    gridColumn.appendChild(gridSquare);
+function generateGrid(numSquares) {
+  for (let i = 0; i < numSquares; i++) {
+    const gridColumn = document.createElement("div");
+    gridColumn.className = "gridColumn";
+    container.appendChild(gridColumn);
+    for (let j = 0; j < numSquares; j++) {
+      const gridSquare = document.createElement("div");
+      gridSquare.className = "gridSquare";
+      gridColumn.appendChild(gridSquare);
+    }
   }
+
+  //make function to change background color of grid squares on hover
+  const allGridSquares = document.querySelectorAll(".gridSquare");
+
+  allGridSquares.forEach((square) => {
+    square.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "red";
+    });
+  });
 }
 
-//make function to change background color of grid squares on hover
+generateGrid(16);
 
-const allGridSquares = document.querySelectorAll(".gridSquare");
 
-allGridSquares.forEach((square) => {
-  square.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = "red";
+//configure resizing of grid on button press;
+const resizeButton = document.querySelector(".resizeButton");
+
+resizeButton.addEventListener("click", () => {
+  let newGridSize = parseInt(
+    prompt("What size do you want to drawing area to be? Max size is 100: ")
+  );
+  if (newGridSize > 100) {
+    newGridSize = 100;
+  }
+  console.log(newGridSize);
+
+  const allColumns = document.querySelectorAll(".gridColumn");
+
+  allColumns.forEach((column) => {
+    column.remove();
   });
+
+  generateGrid(newGridSize);
 });
