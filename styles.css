@@ -1,23 +1,28 @@
 body {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    border: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+
+  gap: 5px;
 }
 
 .container {
   display: flex;
-  flex-flow: row wrap;
+
   height: 600px;
-  width: 650px;
-  align-items: center;
+  width: 600px;
+}
 
-
+.gridColumn {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
 }
 
 .gridSquare {
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
+  flex: 1 1 auto;
 
+  border: 1px solid grey;
 }
