@@ -26,7 +26,6 @@ function generateGrid(numSquares) {
 
 generateGrid(16);
 
-
 //configure resizing of grid on button press;
 const resizeButton = document.querySelector(".resizeButton");
 
@@ -34,10 +33,11 @@ resizeButton.addEventListener("click", () => {
   let newGridSize = parseInt(
     prompt("What size do you want to drawing area to be? Max size is 100: ")
   );
-  if (newGridSize > 100) {
+  if (newGridSize <= 0 || isNaN(newGridSize)) {
+    newGridSize = 2;
+  } else if (newGridSize > 100) {
     newGridSize = 100;
   }
-  console.log(newGridSize);
 
   const allColumns = document.querySelectorAll(".gridColumn");
 
